@@ -1,21 +1,28 @@
 import React, { useState } from 'react'
 
-function CountButton(){
+function CountButton(props ){
+
 
     const [currentCount, setCurrentCount] = useState(0)
 
     function handleClick() {
-        setCurrentCount(currentCount + 1)
+        setCurrentCount(currentCount + props.incrementBy)
         
     }
+
+const buttonStyles = { 
+background: props.buttonColor,
+borderRadius: "10px"
+}
+
 
 
 
     return( 
     <div>
-        <button onClick = {handleClick}// close button function
+        <button style= {buttonStyles} onClick = {handleClick}// close button function
         >
-            +1
+            +{props.incrementBy}
         </button>
         <div>{currentCount}</div>
     </div>)
